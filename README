@@ -1,0 +1,30 @@
+## Configuring
+
+configuration options: {
+  keyFile (REQUIRED),
+  scopes (defaults to https://www.googleapis.com/auth/analytics.readonly),
+  ids (REQUIRED),
+  chartOptions (global chart options)
+}
+
+## Generating Reports
+
+gaOptions: array of {
+  dimensions (REQUIRED) (do not include ga:... part, each dimension should be separate element of array),
+  metrics (REQUIRED) ^^,
+  startDate,
+  endDate,
+  filters (string of ga:... things comma separated),
+  ids,
+  includeEmptyRows
+}
+
+chartOptions: {
+  type (REQUIRED),
+  columnHeaders (REQUIRED for type=table),
+  datasetLabel (REQUIRED for type!=table),
+  renderAsImage (return image instead of html, works for when script can't be executed),
+  dateFormat (type of date format given from that GA request, depends on time metric)
+  chartOptions (any chart js options for options param of chart),
+  datasetOptions (any chartjs options for dataset)
+}
